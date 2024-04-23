@@ -47,7 +47,7 @@ const App = () => {
 
   const addBookHandler = (newBook) => {
     const bookData = { ...newBook, bookId: Math.random() };
-    setBooks([bookData, ...BOOKS]);
+    setBooks((prevBooks) => [bookData, ...prevBooks]);
   };
 
   return (
