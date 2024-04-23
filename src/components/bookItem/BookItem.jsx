@@ -1,14 +1,28 @@
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
-import { useState } from "react"
+import { StarFill, Star } from "react-bootstrap-icons";
+import { useState } from "react";
 
 const BookItem = ({ title, author, rating, pages, imageUrl }) => {
   const [bookTitle, setBookTitle] = useState(title);
 
   const clickHandler = () => {
-    setBookTitle("Actualizado!")
-    console.log(bookTitle)
-  }
+    setBookTitle("Actualizado!");
+    console.log(bookTitle);
+  };
+
+  const StarRating = () => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating.length) {
+        stars.push(<StarFill />);
+      } else {
+        stars.push(<Star />);
+      }
+    }
+
+    return <div>{stars}</div>;
+  };
 
   return (
     <Card className="mx-3 mb-2" style={{ width: "22rem" }}>
@@ -25,7 +39,7 @@ const BookItem = ({ title, author, rating, pages, imageUrl }) => {
       <Card.Body>
         <Card.Title>{bookTitle}</Card.Title>
         <Card.Subtitle>{author}</Card.Subtitle>
-        <div>{rating?.length} estrellas</div>
+        <StarRating />
         <p>{pages} páginas</p>
         <Button onClick={clickHandler}>Actualizar titulo</Button>
       </Card.Body>
