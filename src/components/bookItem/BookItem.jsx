@@ -15,9 +15,9 @@ const BookItem = ({ title, author, rating, pages, imageUrl }) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       if (rating[i]) {
-        stars.push(<StarFill style={{ color: "gold", margin: "1px" }} />);
+        stars.push(<StarFill style={{ color: "#c7a339", margin: "1px" }} />);
       } else {
-        stars.push(<Star style={{ color: "gold", margin: "1px" }} />);
+        stars.push(<Star style={{ color: "#c7a339", margin: "1px" }} />);
       }
     }
 
